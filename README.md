@@ -1,21 +1,20 @@
 # Tiny BME280 Library #
 [![Build Status](https://travis-ci.org/jasonacox/Tiny_BME280_Library.svg?branch=master)](https://travis-ci.org/jasonacox/Tiny_BME280_Library)
 
-This is a minimized library for the  BME280 Humidity, Barometric Pressure + Temp sensor
+This is a Arduino library for the BME280 Humidity, Barometric Pressure + Temp sensor
 
 ## Description
-This is a minimized library for BME280 sensor for gathering temperature, humidity and pressure using I2C communication.  This libary is a fork of the more robust [Adafruit_BME280_Library](https://github.com/adafruit/Adafruit_BME280_Library) but with SPI and other features removed to reduce PROGMEM space.  This library is ideal for smaller controllers like the ATtiny85.
+This is a Arduino library for BME280 sensor for gathering temperature, humidity and pressure using I2C communication.  This library is a minimized fork of the more robust [Adafruit_BME280_Library](https://github.com/adafruit/Adafruit_BME280_Library) but with SPI and other features removed to reduce PROGMEM space.  This library is ideal for smaller controllers like the ATtiny85.
 
-This library was designed to work with the Adafruit BME280 Breakout 
+This library was designed to work with the Adafruit BME280 sensor 
  * http://www.adafruit.com/products/2652
 
 ## Setup
-These sensors use I2C to communicate, using 2 pins.
+These sensors use I2C to communicate, using 2 pins: SDA and SCL.
 
-Use of this library also requires [Adafruit_Sensor](https://github.com/adafruit/Adafruit_Sensor)
-to be installed on your local system.
+Use of this library also requires the [Adafruit_Sensor](https://github.com/adafruit/Adafruit_Sensor) library to be installed on your system.
 
-Download or clone this Tiny_BME280 library repo in your ~/Documents/Arduino/libraries/ folder and restart the IDE.
+Download or clone this Tiny_BME280 library repo into your local Arduino libraries fold (e.g.) ~/Documents/Arduino/libraries/ for MacOS) and restart the IDE.
 ```bash
 cd ~/Documents/Arduino/libraries
 git clone https://github.com/jasonacox/Tiny_BME280_Library.git 
@@ -23,8 +22,8 @@ git clone https://github.com/jasonacox/Tiny_BME280_Library.git
 
 ## Example Usage
 ```cpp
-#include <Adafruit_Sensor.h>
-#include <Tiny_BME280.h>
+#include <Adafruit_Sensor.h>    // https://github.com/adafruit/Adafruit_Sensor
+#include <Tiny_BME280.h>        // https://github.com/jasonacox/Tiny_BME280_Library
 
 // Initialize BME280 Class
 Tiny_BME280 bme; 
