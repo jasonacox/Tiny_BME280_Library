@@ -10,7 +10,9 @@ This library was designed to work with the Adafruit BME280 sensor
  * http://www.adafruit.com/products/2652
 
 ## Setup
-These sensors use I2C to communicate, using 2 pins: SDA and SCL.
+These sensors use I2C to communicate, using 2 I2C Logic pins:
+* SCK - this is also the I2C clock pin, connect to the microcontrollers I2C clock line. On the ATtiny85 this is PB2 (physical pin 7)
+* SDI or SDA - this is also the I2C data pin, connect to the microcontrollers I2C data line. On the ATtiny85 this is PB0 (physical pin 5)
 
 Use of this library also requires the [Adafruit_Sensor](https://github.com/adafruit/Adafruit_Sensor) library to be installed on your system.
 
@@ -19,6 +21,7 @@ Download or clone this Tiny_BME280 library repo into your local Arduino librarie
 cd ~/Documents/Arduino/libraries
 git clone https://github.com/jasonacox/Tiny_BME280_Library.git 
 ```
+This has been tested to work with ATtiny85 microcontrollers using the [ATTinyCore](https://github.com/SpenceKonde/ATTinyCore) core.
 
 ## Example Usage
 ```cpp
