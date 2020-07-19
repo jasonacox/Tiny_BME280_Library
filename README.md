@@ -1,10 +1,12 @@
-# Tiny BME280 Library
-This is a library for the  BME280 Humidity, Barometric Pressure + Temp sensor
+# Tiny BME280 Library #
+[![Build Status](https://travis-ci.org/jasonacox/Tiny_BME280_Library.svg?branch=master)](https://travis-ci.org/jasonacox/Tiny_BME280_Library)
+
+This is a minimized library for the  BME280 Humidity, Barometric Pressure + Temp sensor
 
 ## Description
-Tiny library for BME280 sensor for gathering temperature, humidity and pressure.  Based on Adafruit_BME280_Library but with SPI and other features removed to reduce PROGMEM space.  Ideal for smaller controllers like the ATtiny85.
+This is a minimized library for BME280 sensor for gathering temperature, humidity and pressure using I2C communication.  This libary is a fork of the more robust [Adafruit_BME280_Library](https://github.com/adafruit/Adafruit_BME280_Library) but with SPI and other features removed to reduce PROGMEM space.  This library is ideal for smaller controllers like the ATtiny85.
 
-Designed to work with the Adafruit BME280 Breakout 
+This library was designed to work with the Adafruit BME280 Breakout 
  * http://www.adafruit.com/products/2652
 
 ## Setup
@@ -13,8 +15,11 @@ These sensors use I2C to communicate, using 2 pins.
 Use of this library also requires [Adafruit_Sensor](https://github.com/adafruit/Adafruit_Sensor)
 to be installed on your local system.
 
-Place this Tiny_BME280 library folder your ~/Documents/Arduino/libraries/ folder and restart
-the IDE.
+Download or clone this Tiny_BME280 library repo in your ~/Documents/Arduino/libraries/ folder and restart the IDE.
+```bash
+cd ~/Documents/Arduino/libraries
+git clone https://github.com/jasonacox/Tiny_BME280_Library.git 
+```
 
 ## Example Usage
 ```cpp
