@@ -1,10 +1,10 @@
 /*!
- * @file Tiny_BME280.h
+ * @file Adafruit_BME280.h
  *
  * Designed specifically to work with the Adafruit BME280 Breakout
  * ----> http://www.adafruit.com/products/2650
  *
- * These sensors use I2C to communicate, 2 or 4 pins are required
+ * These sensors use I2C or SPI to communicate, 2 or 4 pins are required
  * to interface.
  *
  * Adafruit invests time and resources providing this open source code,
@@ -18,6 +18,19 @@
  *
  */
 
+/* 
+  Tiny_BME280 Modification
+
+  This is a forked and minimized library for the BME280 sensor. It will provide
+  functions to read temperature, humidity and pressure using I2C communication.  
+  This libary is based on the more robust Adafruit_BME280_Library but with SPI 
+  and other features removed to reduce PROGMEM space. This library is ideal for 
+  smaller controllers like the ATtiny85.
+
+  Adafruit_BME280 - https://github.com/adafruit/Adafruit_BME280_Library
+
+*/
+
 #ifndef __TinyBME280_H__
 #define __TinyBME280_H__
 
@@ -30,9 +43,9 @@
  *  @brief  default I2C address
  */
 #define BME280_ADDRESS (0x77)           // Primary I2C Address
-                                        /*!
-                                         *  @brief  alternate I2C address
-                                         */
+/*!
+  *  @brief  alternate I2C address
+  */
 #define BME280_ADDRESS_ALTERNATE (0x76) // Alternate Address
 
 /*!
@@ -211,7 +224,6 @@ public:
 
   // constructors
   Tiny_BME280();
-  //Tiny_BME280(int8_t cspin, SPIClass *theSPI = &SPI);
   //Tiny_BME280(int8_t cspin, int8_t mosipin, int8_t misopin, int8_t sckpin);
   ~Tiny_BME280(void);
   bool begin(uint8_t addr = BME280_ADDRESS, TwoWire *theWire = &Wire);

@@ -1,5 +1,5 @@
 /*!
- * @file Tiny_BME280.cpp
+ * @file Adafruit_BME280.cpp
  *
  * @mainpage Adafruit BME280 humidity, temperature & pressure sensor
  *
@@ -7,7 +7,7 @@
  *
  *  Driver for the BME280 humidity, temperature & pressure sensor
  *
- * These sensors use I2C to communicate, 2 or 4 pins are required
+ * These sensors use I2C or SPI to communicate, 2 or 4 pins are required
  * to interface.
  *
  * Designed specifically to work with the Adafruit BME280 Breakout
@@ -27,6 +27,20 @@
  * See the LICENSE file for details.
  *
  */
+
+/* 
+  Tiny_BME280 Modification
+
+  This is a forked and minimized library for the BME280 sensor. It will provide
+  functions to read temperature, humidity and pressure using I2C communication.  
+  This libary is based on the more robust Adafruit_BME280_Library but with SPI 
+  and other features removed to reduce PROGMEM space. This library is ideal for 
+  smaller controllers like the ATtiny85.
+
+  Adafruit_BME280 - https://github.com/adafruit/Adafruit_BME280_Library
+
+*/
+
 
 #include "Tiny_BME280.h"
 #include "Arduino.h"
