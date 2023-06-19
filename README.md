@@ -69,3 +69,54 @@ void loop() {
 }
 ```
 
+## API reference
+
+
+### Constructors
+
+*   `Tiny_BME280()`
+    *   Description: Default constructor.
+*   `~Tiny_BME280(void)`
+    *   Description: Destructor.
+
+### Methods
+
+*   `bool begin(uint8_t addr = BME280_ADDRESS, TwoWire *theWire = &Wire)`
+    *   Description: Initializes the BME280 sensor.
+    *   Parameters:
+        *   `addr` (optional): I2C address of the sensor. Defaults to `BME280_ADDRESS` (`0x77`).
+        *   `theWire` (optional): Pointer to the `TwoWire` object. Defaults to `Wire`.
+    *   Returns: `true` if initialization is successful, `false` otherwise.
+*   `bool init()`
+    *   Description: Initializes the BME280 sensor.
+    *   Returns: `true` if initialization is successful, `false` otherwise.
+*   `void setSampling(sensor_mode mode, sensor_sampling tempSampling, sensor_sampling pressSampling, sensor_sampling humSampling, sensor_filter filter, standby_duration duration)`
+    *   Description: Sets the sampling settings for temperature, pressure, humidity, filter, and standby duration.
+    *   Parameters:
+        *   `mode`: Power mode (`MODE_SLEEP`, `MODE_FORCED`, or `MODE_NORMAL`).
+        *   `tempSampling`: Temperature sampling rate (`SAMPLING_NONE`, `SAMPLING_X1`, `SAMPLING_X2`, `SAMPLING_X4`, `SAMPLING_X8`, or `SAMPLING_X16`).
+        *   `pressSampling`: Pressure sampling rate (`SAMPLING_NONE`, `SAMPLING_X1`, `SAMPLING_X2`, `SAMPLING_X4`, `SAMPLING_X8`, or `SAMPLING_X16`).
+        *   `humSampling`: Humidity sampling rate (`SAMPLING_NONE`, `SAMPLING_X1`, `SAMPLING_X2`, `SAMPLING_X4`, `SAMPLING_X8`, or `SAMPLING_X16`).
+        *   `filter`: Filter setting (`FILTER_OFF`, `FILTER_X2`, `FILTER_X4`, `FILTER_X8`, or `FILTER_X16`).
+        *   `duration`: Standby duration (`STANDBY_MS_0_5`, `STANDBY_MS_10`, `STANDBY_MS_20`, `STANDBY_MS_62_5`, `STANDBY_MS_125`, `STANDBY_MS_250`, `STANDBY_MS_500`, or `STANDBY_MS_1000`).
+*   `void takeForcedMeasurement()`
+    *   Description: Initiates a forced measurement and waits for the results to be available.
+*   `float readTemperature()`
+    *   Description: Reads the temperature from the sensor.
+    *   Returns: Temperature value in degrees Celsius.
+*   `float readPressure()`
+    *   Description: Reads the pressure from the sensor.
+    *   Returns: Pressure value in Pascals.
+*   `float readHumidity()`
+    *   Description: Reads the humidity from the sensor.
+    *   Returns: Humidity value as a percentage.
+*   `float readAltitude(float seaLevel)`
+    *   Description: Calculates the altitude based on the specified sea level pressure.
+    *   Parameters:
+        *   `seaLevel`: Sea level pressure in Pascals.
+    *   Returns: Altitude value in meters.
+*   `float seaLevelForAltitude(float altitude, float pressure)`
+    *   Description: Calculates the sea level pressure based on the specified altitude.
+    *   Parameters:
+        *   `altitude`: Altitude value in meters. 
+        *   `pressure`: Pressure value in Pascals.
